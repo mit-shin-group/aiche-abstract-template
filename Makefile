@@ -27,18 +27,10 @@ txt:
 	  -t plain \
 	  -o abstract.txt
 	@echo "✓  Plain text written to abstract.txt"
-
-# Strip any stray LaTeX macros pandoc may leave behind
-	@sed -i -e 's/\\emph{\([^}]*\)}/\1/g' abstract.txt
-	@sed -i -e 's/\\textbf{\([^}]*\)}/\1/g' abstract.txt
-	@sed -i -e 's/\\textit{\([^}]*\)}/\1/g' abstract.txt
-
 	@echo "Generated plain text:"
-
 	@echo "----------------------------------------------------------"
 	@cat abstract.txt
 	@echo "----------------------------------------------------------"
-	@cat abstract.txt | pbcopy
 
 # --- Cleanup ---------------------------------------------
 clean:
