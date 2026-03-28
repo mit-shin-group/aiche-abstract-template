@@ -1,0 +1,7 @@
+Your Abstract Title Here
+
+We propose a scalable optimization framework for large-scale energy infrastructure planning (Nocedal and Wright, 2006). We solve the problem by using interior-point techniques (Wächter and Biegler, 2006).
+
+Nocedal, J. and Wright, S. J. (2006) Numerical optimization. Springer,
+
+Wächter, A. and Biegler, L. T. (2006) On the implementation of an interior-point filter line-search algorithm for large-scale nonlinear programming. Mathematical Programming 106, 25–57.

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0">
+  <info>
+    <title>Author-Date (minimal)</title>
+    <id>author-date-minimal</id>
+    <updated>2024-01-01T00:00:00+00:00</updated>
+  </info>
+
+  <!-- In-text: (Nocedal and Wright, 2006) -->
+  <citation et-al-min="3" et-al-use-first="1" disambiguate-add-year-suffix="true">
+    <sort>
+      <key macro="author-short"/>
+      <key macro="year-inline"/>
+    </sort>
+    <layout prefix="(" suffix=")" delimiter="; ">
+      <text macro="author-short"/>
+      <text value=", "/>
+      <text macro="year-inline"/>
+    </layout>
+  </citation>
+
+  <!-- Reference list: sorted by author then year, no blank lines -->
+  <bibliography entry-spacing="0" line-spacing="1" sort-separator=", ">
+    <sort>
+      <key macro="author-full"/>
+      <key macro="year-inline"/>
+    </sort>
+    <layout>
+      <text macro="author-full"/>
+      <text value=" "/>
+      <text macro="year-parens"/>
+      <text value=" "/>
+      <text macro="title"/>
+      <text macro="container"/>
+    </layout>
+  </bibliography>
+
+  <!-- ── Macros ─────────────────────────────────────── -->
+
+  <!-- Short author for in-text: "Nocedal and Wright" / "Nocedal et al." -->
+  <macro name="author-short">
+    <names variable="author">
+      <name form="short" and="text" delimiter=", " et-al-min="3" et-al-use-first="1"/>
+    </names>
+  </macro>
+
+  <!-- Full author for reference list: "Nocedal, J.; Wright, S. J." -->
+  <macro name="author-full">
+    <names variable="author">
+      <name form="long" delimiter="; " and="text" initialize-with=". "
+            name-as-sort-order="all"/>
+    </names>
+    <text value="."/>
+  </macro>
+
+  <!-- Year bare: 2006 -->
+  <macro name="year-inline">
+    <date variable="issued">
+      <date-part name="year"/>
+    </date>
+  </macro>
+
+  <!-- Year in parens for reference list: (2006) -->
+  <macro name="year-parens">
+    <date variable="issued">
+      <date-part name="year" prefix="(" suffix=")"/>
+    </date>
+  </macro>
+
+  <macro name="title">
+    <text variable="title" suffix=". "/>
+  </macro>
+
+  <macro name="container">
+    <choose>
+      <if type="article-journal">
+        <text variable="container-title" font-style="italic" suffix=" "/>
+        <text variable="volume" font-weight="bold" suffix=", "/>
+        <text variable="page" suffix="."/>
+      </if>
+      <else-if type="book">
+        <text variable="publisher" suffix=", "/>
+        <text variable="publisher-place" suffix="."/>
+      </else-if>
+    </choose>
+  </macro>
+
+</style>
